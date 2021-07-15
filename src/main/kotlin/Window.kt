@@ -6,7 +6,7 @@ class Window: JFrame() {
     val HEIGHT: Int = 300
     var visual: Visual
     init{
-        setResizable(false)
+        setResizable(true)
         setTitle("Circles")
         visual = Visual(WIDTH, HEIGHT)
         setContentPane(visual)

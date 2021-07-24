@@ -11,10 +11,10 @@ import javax.swing.JComponent
 import kotlin.concurrent.schedule
 
 
-class Visual(width: Int, height: Int): JComponent() {
+class Visual: JComponent() {
 
-    val TICK = 1000 / 60
-    var timer: Timer = Timer()
+    private val TICK = 1000 / 60
+    private var timer: Timer = Timer()
     val circles: ArrayList<Circle>
 
     init{
@@ -35,8 +35,8 @@ class Visual(width: Int, height: Int): JComponent() {
 
     fun saveScreenShot() {
         val image = BufferedImage(
-            getWidth(),
-            getHeight(),
+            width,
+            height,
             BufferedImage.TYPE_INT_RGB
         )
         println("Snap!")
@@ -70,7 +70,7 @@ class Visual(width: Int, height: Int): JComponent() {
         }
     }
 
-    private inner class MouseClicks() : MouseAdapter() {
+    private inner class MouseClicks : MouseAdapter() {
 
         var timer: Timer
         init{
@@ -81,7 +81,7 @@ class Visual(width: Int, height: Int): JComponent() {
             timer = Timer()
             circles.add(Circle(e?.point?.x as Int, e.point.y,1f))
             timer.schedule(0, 10){
-                circles.last().diameter += 1;
+                circles.last().diameter += 1
             }
         }
 
@@ -93,8 +93,8 @@ class Visual(width: Int, height: Int): JComponent() {
     private inner class MouseMoves : MouseMotionAdapter() {
 
         override fun mouseDragged(e: MouseEvent?) {
-            circles.last().x = e?.point?.x as Int;
-            circles.last().y = e.point.y;
+            circles.last().x = e?.point?.x as Int
+            circles.last().y = e.point.y
         }
     }
 

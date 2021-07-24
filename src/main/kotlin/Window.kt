@@ -1,15 +1,14 @@
 import javax.swing.JFrame
-import javax.swing.WindowConstants.EXIT_ON_CLOSE
 
 class Window: JFrame() {
-    val WIDTH: Int = 300
-    val HEIGHT: Int = 300
+    private val WIDTH: Int = 300
+    private val HEIGHT: Int = 300
     var visual: Visual
     init{
-        setResizable(true)
-        setTitle("Circles")
-        visual = Visual(WIDTH, HEIGHT)
-        setContentPane(visual)
+        isResizable = true
+        title = "Circles"
+        visual = Visual()
+        contentPane = visual
     }
 
     companion object {

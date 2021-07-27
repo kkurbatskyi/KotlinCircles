@@ -27,7 +27,6 @@ class Visual: JComponent() {
     }
 
     fun start() {
-        println("Starting!")
         timer.schedule(0, TICK.toLong()){
             repaint()
         }
@@ -39,7 +38,6 @@ class Visual: JComponent() {
             height,
             BufferedImage.TYPE_INT_RGB
         )
-        println("Snap!")
         // call the Component's paint method, using the Graphics object of the image
         paint(image.graphics)
         ImageIO.write(image, "png", File("./snapshots/circleDrawing.png"))
